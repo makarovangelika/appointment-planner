@@ -8,7 +8,9 @@ export const AppointmentsPage = ({contacts, appointments, addAppointment}) => {
   appointment info
   */
   const [title,setTitle] = useState('');
-  const [contact, setContact] = useState('');
+  const [contact, setContact] = useState(
+    contacts.length > 0 ? contacts[0].name : ""
+  );
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 

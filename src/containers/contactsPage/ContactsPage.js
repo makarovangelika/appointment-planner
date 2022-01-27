@@ -34,16 +34,18 @@ export const ContactsPage = ({contacts, addContact}) => {
     let hasDuplicateName = contacts.some(contact => name === contact.name);
     if (hasDuplicateName) {
       setDuplicate(true);
-    }
-    return () => {
+    } else {
       setDuplicate(false);
     }
-  }, [name]);
+  }, [name, contacts, duplicate]);
 
   return (
     <div>
       <section>
-        <h2>Add Contact</h2>
+        <h2>
+          Add Contact
+          {duplicate ? ' - Name Already Exists' : ''}
+        </h2>
         <ContactForm
           name={name}
           phone={phone}

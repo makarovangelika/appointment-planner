@@ -21,23 +21,24 @@ function App() {
   contacts and appointments
   */
   const addContact = (name, phone, email) => {
-    setContacts(prevContacts => 
-      [...prevContacts,
-        {name: name,
+    setContacts([
+      ...contacts,
+      {
+        name: name,
         phone: phone,
         email: email
-        }
-      ]
-    );
+      }
+    ]);
   }
   const addAppointment = (title, contact, date, time) => {
-    setAppointments(prevAppointments => 
-      [...prevAppointments,
-        {title: title,
+    setAppointments([
+      ...appointments,
+      {
+        title: title,
         contact: contact,
         date: date,
         time: time
-        }
+      }
       ]
     );
   }

@@ -11,7 +11,7 @@ export const AppointmentForm = ({
   setDate,
   time,
   setTime,
-  handleSubmit
+  onSubmit
 }) => {
   const getTodayString = () => {
     const [month, day, year] = new Date()
@@ -33,11 +33,33 @@ export const AppointmentForm = ({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type='text' value={title} onChange={addTitle} />
-      <input type='date' value={date} onChange={addDate} />
-      <input min={getTodayString()} type='time' value={time} onChange={addTime} />
-      <ContactPicker contacts={contacts} onChange={chooseContact} />
+    <form onSubmit={onSubmit}>
+      <input
+        type='text'
+        value={title}
+        onChange={addTitle}
+        name='title'
+        required
+        placeholder='Appointment title' />
+      <input
+        type='date'
+        name='date'
+        value={date}
+        onChange={addDate}
+        min={getTodayString()}
+        required />
+      <input
+        type='time'
+        name='time'
+        value={time}
+        onChange={addTime}
+        required />
+      <ContactPicker
+        value={contact}
+        name='contact'
+        placeholder='Appointment with'
+        contacts={contacts}
+        onChange={chooseContact} />
       <input type='submit' value='Add'/>
     </form>
   );
